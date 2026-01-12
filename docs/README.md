@@ -6,11 +6,10 @@ config:
     type: hero
     full: true
     forceDark: true
-    effect: lightning
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: 一个简约的，功能丰富的 vuepress 文档&博客 主题
+      name: 物理学讲义
+      tagline: 专注于凝聚态物理基础和前沿
+      text: 包含练习题、概念、问题等
       actions:
         -
           theme: brand
@@ -19,5 +18,5 @@ config:
         -
           theme: alt
           text: Github →
-          link: https://github.com/pengzhanbo/vuepress-theme-plume
+          link: https://github.com/rucijin/Condensed_Matter_Physics_Notes
 ---
