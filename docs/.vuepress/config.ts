@@ -48,10 +48,6 @@ export default defineUserConfig({
      */
     cache: 'filesystem',
 
-    /**
-     * 为 markdown 文件自动添加 frontmatter 配置
-     * @see https://theme-plume.vuejs.press/config/theme/#autofrontmatter
-     */
     // autoFrontmatter: {
     //   permalink: true,  // 是否生成永久链接
     //   createTime: true, // 是否生成创建时间
@@ -62,18 +58,6 @@ export default defineUserConfig({
     search: { provider: 'local' },
 
     /**
-     * Algolia DocSearch
-     * 启用此搜索需要将 本地搜索 search 设置为 false
-     * @see https://theme-plume.vuejs.press/config/plugins/search/#algolia-docsearch
-     */
-    // search: {
-    //   provider: 'algolia',
-    //   appId: '',
-    //   apiKey: '',
-    //   indices: [''],
-    // },
-
-    /**
      * Shiki 代码高亮
      * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
      */
@@ -82,9 +66,6 @@ export default defineUserConfig({
     //   whitespace: true, // 启用 空格/Tab 高亮
     //   lineNumbers: true, // 启用行号
     // },
-
-    /* 文章字数统计、阅读时间，设置为 false 则禁用 */
-    // readingTime: true,
 
     /**
      * markdown
@@ -137,41 +118,11 @@ export default defineUserConfig({
      * @see https://theme-plume.vuejs.press/guide/features/watermark/
      */
     // watermark: true,
-
-    /**
-     * 评论 comments
-     * @see https://theme-plume.vuejs.press/guide/features/comments/
-     */
-    // comment: {
-    //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-    //   comment: true,
-    //   repo: '',
-    //   repoId: '',
-    //   category: '',
-    //   categoryId: '',
-    //   mapping: 'pathname',
-    //   reactionsEnabled: true,
-    //   inputPosition: 'top',
-    // },
-
+    
     /**
      * 资源链接替换
      * @see https://theme-plume.vuejs.press/guide/features/replace-assets/
      */
     // replaceAssets: 'https://cdn.example.com',
-
-    /**
-     * 加密功能
-     * @see https://theme-plume.vuejs.press/guide/features/encryption/
-     */
-    // encrypt: {},
-
-    /**
-     * 启用 llmstxt 插件，用于为大语言模型提供更友好的内容
-     * @see https://theme-plume.vuejs.press/guide/features/llmstxt/
-     */
-    // llmstxt: {
-    //   locale: '/',    // 默认仅为主语言生成 llms 友好内容
-    // }
   }),
 })
