@@ -6,6 +6,7 @@ import { defineClientConfig } from 'vuepress/client'
 
 import CustomComponent from './theme/components/Custom.vue'
 import './theme/styles/custom.css'
+import Canvastest from './theme/components/Canvastest.vue'
 
 export default defineClientConfig({
   enhance({ app }) {
@@ -17,5 +18,6 @@ export default defineClientConfig({
 
     // your custom components
     app.component('CustomComponent', CustomComponent)
+    app.component('Canvastest', Canvastest)
   },
 })
