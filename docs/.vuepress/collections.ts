@@ -14,15 +14,15 @@ const blog = defineCollection({
   pagination: 30, // 每页显示文章数量
 })
 
-const demoDoc = defineCollection({
+const quantphysDoc = defineCollection({
   type: 'doc',
-  dir: 'demo',
-  linkPrefix: '/demo',
-  title: 'Demo',
+  dir: 'quantphys',
+  linkPrefix: '/quantphys',
+  title: 'quantphys',
   sidebar: 'auto',
 })
 
 export default defineCollections([
   blog,
-  demoDoc,
+  quantphysDoc,
 ])

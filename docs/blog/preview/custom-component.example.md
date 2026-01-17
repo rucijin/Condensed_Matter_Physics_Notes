@@ -7,6 +7,6 @@ createTime: 2026/01/12 15:35:01
 permalink: /blog/1jl63m6l/
 ---
 
-<CustomComponent />
-<CustomComponent />
-<Canvastest />
+<CustomComponent/>
+
+<Dview/>

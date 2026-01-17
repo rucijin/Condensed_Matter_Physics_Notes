@@ -7,6 +7,8 @@ import { defineClientConfig } from 'vuepress/client'
 import CustomComponent from './theme/components/Custom.vue'
 import './theme/styles/custom.css'
 import Canvastest from './theme/components/Canvastest.vue'
+import './theme/components/Dview.vue'
+import Dview from './theme/components/Dview.vue'
 
 export default defineClientConfig({
   enhance({ app }) {
@@ -19,5 +21,6 @@ export default defineClientConfig({
     // your custom components
     app.component('CustomComponent', CustomComponent)
     app.component('Canvastest', Canvastest)
+    app.component('Dview', Dview)
   },
 })
