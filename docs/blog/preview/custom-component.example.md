@@ -8,5 +8,3 @@ permalink: /blog/1jl63m6l/
 ---
 
 <CustomComponent/>
-
-<Dview/>

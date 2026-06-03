@@ -20,8 +20,8 @@ export default defineUserConfig({
   description: '凝聚态物理讲义',
 
   head: [
-    // 配置站点图标
-    ['link', { rel: 'icon', type: 'image/png', href: 'https://theme-plume.vuejs.press/favicon-32x32.png' }],
+    // 配置站点图标（使用本地资源）
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/Condensed_Matter_Physics_Notes/plume.svg' }],
   ],
 
   bundler: viteBundler(),
@@ -29,7 +29,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    hostname: 'https://github.com/rucijin/Condensed_Matter_Physics_Notes',
+    hostname: 'https://rucijin.github.io',
 
     /**
      * 编译缓存，加快编译速度

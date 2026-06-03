@@ -23,7 +23,7 @@ pnpm vp-update          # 更新 vuepress 和主题版本
 - **包管理器**: pnpm `10.28.0`（通过 `packageManager` 字段锁定）
 - **框架**: Vue 3 + TypeScript
 - **构建工具**: VuePress 2 + Vite bundler
-- **主题**: vuepress-theme-plume `1.0.0-rc.185`
+- **主题**: vuepress-theme-plume `1.0.0-rc.202`
 - **关键依赖**: `three`（3D 渲染）、`pyodide`（浏览器端 Python 执行）
 
 ## 架构一览
@@ -32,8 +32,9 @@ pnpm vp-update          # 更新 vuepress 和主题版本
 
 主题采用双配置文件设计，注意**不要在两个文件中重复配置相同的项**（`config.ts` 中的配置会覆盖 `plume.config.ts`）：
 
-- **`docs/.vuepress/config.ts`** — VuePress 本身的配置（base、lang、bundler、markdown 插件、主题实例化）。这里配置了 `base: '/Condensed_Matter_Physics_Notes/'`、KaTeX 数学公式、Python REPL 代码演示、本地搜索和 filesystem 编译缓存。
-- **`docs/.vuepress/plume.config.ts`** — 主题专属配置（导航栏、社交链接、页脚、过渡动画、深色模式等）。通过 `defineThemeConfig` 定义，导入 navbar 和 collections。
+- **`docs/.vuepress/config.ts`** — VuePress 本身的配置 + 通过 `plumeTheme({...})` 配置主题。支持的全部字段：`plugins`、`markdown`、`codeHighlighter`、`search`、`comment`、`watermark`、`readingTime`、`copyCode`、`replaceAssets`、`editLink`、`lastUpdated`、`contributors`、`changelog`、`cache`、`hostname`、`configFile`、`encrypt`、`llmstxt` 以及站点级配置（base、lang、bundler 等）。
+- **`docs/.vuepress/plume.config.ts`** — 通过 `defineThemeConfig` 定义的纯 UI 层配置。支持的字段：`hostname`、`home`、`logo`、`logoDark`、`appearance`、`profile`、`social`、`navbarSocialInclude`、`navbar`、`collections`、`sidebar`、`sidebarScrollbar`、`aside`、`outline`、`transition`、`footer`、`bulletin`、`copyright`、`prevPage`、`nextPage`、`createTime`、`locales`、`docsRepo`/`docsBranch`/`docsDir`、`autoFrontmatter`、`editLinkPattern`。
+  > ⚠️ `plume.config.ts` **不支持**：`plugins`、`markdown`、`codeHighlighter`、`search`、`comment`、`watermark`、`cache`、`encrypt`、`llmstxt` 等。这些只能在 `config.ts` 的 `plumeTheme({...})` 中配置。
 
 ### 内容组织（Collections）
 
@@ -44,11 +45,9 @@ pnpm vp-update          # 更新 vuepress 和主题版本
 
 ### 自定义组件
 
-在 `docs/.vuepress/client.ts` 中通过 `defineClientConfig` 注册了三个全局组件：
+在 `docs/.vuepress/client.ts` 中通过 `defineClientConfig` 注册了自定义组件：
 
 - **`Custom.vue`** — 简单的示例组件，展示响应式消息
-- **`Dview.vue`** — 基于 Three.js 的 3D 场景查看器，支持 OrbitControls 和 GLTF 模型加载（模型文件放在 `docs/.vuepress/public/models/`）
-- **`Canvastest.vue`** — 2D Canvas 交互组件，点击绘制彩色圆形
 
 自定义样式位于 `docs/.vuepress/theme/styles/custom.css`，提供了主题颜色、背景色、文本色的 CSS 变量预设（目前均为注释状态）。
 
@@ -70,3 +69,14 @@ GitHub Actions 工作流（`.github/workflows/deploy.yml`）在 push 到 `main` 
 | `vue-pinia-best-practices` | Pinia 状态管理 |
 | `vue-debug-guides` | Vue 3 调试：运行时错误、警告、SSR 水合问题 |
 | `create-adaptable-composable` | 使用 `MaybeRef`/`MaybeRefOrGetter` 创建可复用 composable |
+
+## Plume Theme Skills
+
+本项目安装了 [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume) 仓库提供的技能，位于 `.claude/skills/` 目录下（与 `vuejs-ai/` 并列）。这些技能在编写 VuePress 主题配置或 Markdown 内容时自动生效：
+
+| 技能 | 适用范围 |
+|------|----------|
+| `vuepress-plume-config` | 主题配置生成：`config.ts`、`plume.config.ts`、collections、navbar、sidebar、locales、plugins、encrypt、search、comment、watermark 等 |
+| `vuepress-plume-markdown` | Markdown 写作助手：容器（hint/alert/details）、图表（Mermaid/ECharts/Chart.js）、嵌入（YouTube/Bilibili/PDF/CodePen）、代码块增强（highlight/focus/diff/twoslash）、LLMs txt 标记 |
+
+安装来源：[pengzhanbo/vuepress-theme-plume/skills](https://github.com/pengzhanbo/vuepress-theme-plume/tree/main/skills)
